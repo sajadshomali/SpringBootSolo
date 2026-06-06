@@ -1,0 +1,30 @@
+package com.example.springbootpractice.model;
+
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import java.time.LocalDateTime;
+
+@MappedSuperclass
+public class BaseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime creationTime;
+
+    private LocalDateTime deleted;
+
+    public long getId() {
+        return id;
+    }
+
+    public LocalDateTime getCreationTime() {
+        return creationTime;
+    }
+
+    public LocalDateTime getDeleted() {
+        return deleted;
+    }
+}
