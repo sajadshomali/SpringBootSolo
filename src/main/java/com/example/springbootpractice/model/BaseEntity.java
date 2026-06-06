@@ -1,10 +1,12 @@
 package com.example.springbootpractice.model;
 
 import jakarta.persistence.*;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
+@Setter
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

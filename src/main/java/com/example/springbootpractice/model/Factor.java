@@ -5,19 +5,19 @@ import jakarta.persistence.*;
 @Entity
 public class Factor extends BaseEntity{
     @ManyToOne
-    private users user;
+    private Users user;
     @Enumerated(EnumType.STRING)
     private Payed payed;
 
     public Factor() {
     }
 
-    public Factor(users user, Payed payed) {
+    public Factor(Users user, Payed payed) {
         this.user = user;
         this.payed = payed;
     }
 
-    public users getUser() {
+    public Users getUser() {
         return user;
     }
 

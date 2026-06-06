@@ -1,19 +1,25 @@
 package com.example.springbootpractice.model;
 
 import jakarta.persistence.Entity;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 
 @Entity
-public class users extends BaseEntity {
+@SQLRestriction("deleted is null")
+@SQLDelete(sql = "update public.users set deleted = now() where id=?")
+public class Users extends BaseEntity {
     private String username;
     private String password;
     private boolean enabled;
 
-
-
-    public users() {
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
-    public users(String username, String password, boolean enabled) {
+    public Users() {
+    }
+
+    public Users(String username, String password, boolean enabled) {
         this.username = username;
         this.password = password;
         this.enabled = enabled;
@@ -55,8 +61,8 @@ public class users extends BaseEntity {
             return this;
         }
 
-        public users build(){
-            return new users(username,password,enabled);
+        public Users build(){
+            return new Users(username,password,enabled);
         }
     }
 }
