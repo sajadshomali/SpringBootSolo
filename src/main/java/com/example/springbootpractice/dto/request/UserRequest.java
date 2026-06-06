@@ -4,12 +4,12 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class UserRequest {
-    @NotBlank(message = "username.is.blank")
-    @NotNull(message = "username.is.null")
-    private String username;
+    @NotBlank(message = "{username.is.blank}")
+    @NotNull(message = "{username.is.null}")
+    private final String username;
     @NotBlank(message = "password.is.blank")
     @NotNull(message = "password.is.null")
-    private String password;
+    private final String password;
 
     public UserRequest(String username, String password) {
         this.username = username;

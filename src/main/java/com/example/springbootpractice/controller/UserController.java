@@ -3,6 +3,7 @@ package com.example.springbootpractice.controller;
 import com.example.springbootpractice.dto.request.UserRequest;
 import com.example.springbootpractice.dto.response.UserResponse;
 import com.example.springbootpractice.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class UserController {
     }
 
     @PostMapping("save")
-    public ResponseEntity<UserResponse> save(@RequestBody UserRequest userRequest)  {
+    public ResponseEntity<UserResponse> save(@RequestBody @Valid UserRequest userRequest)  {
         return ResponseEntity.ok(userService.save(userRequest));
     }
 }

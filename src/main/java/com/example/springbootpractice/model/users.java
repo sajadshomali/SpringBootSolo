@@ -1,18 +1,19 @@
 package com.example.springbootpractice.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
-@Entity(name = "Users")
-public class User extends BaseEntity {
+@Entity
+public class users extends BaseEntity {
     private String username;
     private String password;
     private boolean enabled;
 
-    public User() {
+
+
+    public users() {
     }
 
-    public User(String username, String password, boolean enabled) {
+    public users(String username, String password, boolean enabled) {
         this.username = username;
         this.password = password;
         this.enabled = enabled;
@@ -54,8 +55,8 @@ public class User extends BaseEntity {
             return this;
         }
 
-        public User build(){
-            return new User(username,password,enabled);
+        public users build(){
+            return new users(username,password,enabled);
         }
     }
 }

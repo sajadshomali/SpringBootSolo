@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     
     @CreationTimestamp
     @Column(updatable = false)
@@ -16,7 +16,7 @@ public class BaseEntity {
 
     private LocalDateTime deleted;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -27,4 +27,6 @@ public class BaseEntity {
     public LocalDateTime getDeleted() {
         return deleted;
     }
+
+
 }
